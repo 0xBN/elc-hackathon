@@ -1,12 +1,20 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Home, About, Contact } from './pages';
+import { Navigation } from './components';
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <div className="bg-black text-white min-h-screen">
-      <h1>App</h1>
-    </div>
+    <Router>
+      <div className="bg-black text-white min-h-screen">
+        <Navigation />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
